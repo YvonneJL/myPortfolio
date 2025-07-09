@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+    --color-background: #c2a4ad;
+    --color-background-var: #e3cfd4;
+    --color-background-var2: #a5808b;
+    --color-animate: #edd88a;
+    --color-link: #E3CFD4;
+    --color-cyan: #dbcfc5;
+}
+
+/* @font-face {
+    font-family: "Poppins Regular";
+    src: url("/fonts/Poppins-Regular.ttf");
+} */
