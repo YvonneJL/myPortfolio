@@ -12,7 +12,7 @@ function App() {
   ))
 
   return (
-    <main className="bg-animate p-5">
+    <main className="bg-beyge p-5">
       <RouterProvider router={router}/>
     </main>
   )
