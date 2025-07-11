@@ -32,7 +32,7 @@ export default function Projects() {
 ]
 
   return (
-    <section id="projects">
+    <section id="projects" className="pb-30">
     <ChapterHeadline content="Projects"/>
    <section className="flex flex-row gap-5 justify-center pt-10">
     {

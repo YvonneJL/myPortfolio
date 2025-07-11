@@ -22,14 +22,14 @@ export default function Hero() {
     "r",
   ];
   return (
-    <section className="h-screen mb-10">
+    <section className="h-[calc(100vh-10px)]">
       {/* Name */}
-      <article className="flex justify-between border-b border-darkerbeyge pb-5">
+      <article className="flex justify-between border-darkerbeyge pb-5">
         <GoTo
           content="About"
           bgColor="border-2 border-yellow-200"
           hoverEffect="hover:h-45 hover:bg-yellow-200"
-          link=""
+          link="#about"
         />
 
         <div className="text-right text-8xl text-grayish">
@@ -38,7 +38,7 @@ export default function Hero() {
         </div>
       </article>
       {/* Bezeichnung */}
-      <article className="flex justify-between items-center  border-b border-darkerbeyge pb-5">
+      <article className="flex justify-between items-center  border-darkerbeyge pb-5">
         {/* <p className="text-8xl  tracking-wider scrolling-text select-none pt-25 text-grayish">
           Frontend Developer
         </p> */}
@@ -53,11 +53,11 @@ export default function Hero() {
             </span>
           ))}
         </div>
-        <div className="pt-25 hover:pt-5 relative">
+        <div className="pt-10 hover:pt-5 relative">
           <GoTo
             content="Projects"
             bgColor="bg-fuchsia-200"
-            hoverEffect="hover:h-50"
+            hoverEffect="hover:h-40"
             link="#projects"
           />
         </div>
@@ -69,16 +69,16 @@ export default function Hero() {
             content="Skillset"
             bgColor="bg-fuchsia-200"
             hoverEffect="hover:h-35"
-            link=""
+            link="#skillset"
           />
         </div>
-        <div className="bg-darkerbeyge w-[1px]"></div>
+        {/* <div className="bg-darkerbeyge w-[1px]"></div> */}
         <div className="pt-10 hover:pt-5 hover:bg-yellow-200 hover:rounded-br-4xl">
           <GoTo
             content="Contact"
             bgColor="border-2 border-yellow-200"
             hoverEffect="hover:h-35"
-            link=""
+            link="#contact"
           />
         </div>
       </article>
