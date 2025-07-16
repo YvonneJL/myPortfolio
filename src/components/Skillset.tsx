@@ -63,7 +63,7 @@ const skills: IIcon[] = [{
   return (
     <section id="skillset" className="pb-30">
         <ChapterHeadline content="Skillset"/>
-       <section className="grid grid-cols-10 grid-rows-3 gap-10 pt-10">
+       <section className="grid grid-cols-8 grid-rows-3 gap-x-20 gap-y-15 pt-10">
         {
             skills.map((skill, index) => (
                 <SingleSkill index={index} path={skill.path} name={skill.name} gridPos={skill.gridPos}/>

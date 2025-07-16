@@ -2,58 +2,68 @@ import React, { useEffect, useRef, useState } from 'react';
 import ChapterHeadline from './ChapterHeadline';
 
 export default function About() {
-  // ScrollFadeIn Komponente intern
-function ScrollFadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  // 🔽 ScrollFadeIn direkt hier definiert
+  function ScrollFadeIn({
+    children,
+    className = '',
+    delay = 0,
+  }: {
+    children: React.ReactNode;
+    className?: string;
+    delay?: number;
+  }) {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
+    useEffect(() => {
+      const node = ref.current;
+      if (!node) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setVisible(entry.isIntersecting);
-        // Nicht unobserve, damit es weiter auf Sichtbarkeit prüft
-      },
-      { threshold: 0.1 }
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+          } else {
+            setVisible(false);
+          }
+        },
+        {
+          threshold: 0.4, // ⬅️ nur triggern, wenn genug sichtbar ist
+        }
+      );
+
+      observer.observe(node);
+      return () => observer.disconnect();
+    }, []);
+
+    return (
+      <div
+        ref={ref}
+        className={`
+          transition-all duration-500 ease-out transform
+          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
+          ${className}
+        `}
+        style={{
+          willChange: 'opacity, transform',
+          transitionDelay: `${delay}ms`,
+        }}
+      >
+        {children}
+      </div>
     );
-
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`
-        transition-all duration-500 ease-out transform
-        ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
-        
-        ${className}
-      `}
-      style={{
-        willChange: 'opacity, transform',
-        transitionDelay: `${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
-
+  }
 
   return (
     <section
       id="about"
-      className="flex flex-col text-xl leading-relaxed text-grayish tracking-wider relative"
+      className="flex flex-col leading-relaxed text-grayish tracking-wider relative"
     >
       <ChapterHeadline content="About" />
 
       {/* Bild: zuerst aufpoppen */}
       <ScrollFadeIn
-        className="flex justify-center w-full absolute left-1/2 top-65 -translate-x-1/2"
+        className="flex justify-center w-full absolute left-1/2 top-50 -translate-x-1/2"
         delay={0}
       >
         <img src="../../public/img/Frame 178259.svg" alt="Portrait YL" />
@@ -81,8 +91,8 @@ function ScrollFadeIn({ children, className = '', delay = 0 }: { children: React
           </ScrollFadeIn>
 
           <ScrollFadeIn delay={900}>
-            <p className="w-5/6 ml-auto text-right pb-5">
-              Der Weg war nicht ganz gerade, aber das Ziel umso klarer. Nach einem sechsmonatigen Boot Camp
+            <p className="w-1/2 ml-auto text-right pb-15">
+              Mein Weg war nicht ganz gerade, aber das Ziel umso klarer. Nach einem sechsmonatigen Boot Camp
               mit Schwerpunkt auf Typescript und React bin ich seit Mai 2025 zertifizierte Frontend Developerin.
               Jetzt freue ich mich darauf Teil eines kreativen Teams zu werden, um als Frontend Developerin
               durchzustarten.

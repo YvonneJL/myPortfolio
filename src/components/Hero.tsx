@@ -43,13 +43,13 @@ export default function Hero() {
           Frontend Developer
         </p> */}
         <div className="flex items-center space-x-1 overflow-hidden">
-          {letters.map((char, index) => (
+          {letters.map((letter, index) => (
             <span
               key={index}
-              className="drag-in hover-wiggle inline-block text-8xl tracking-widest text-grayish pt-25"
+              className="drag-in hover-wiggle inline-block text-7xl tracking-widest text-grayish pt-25"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {char}
+              {letter}
             </span>
           ))}
         </div>

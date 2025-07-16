@@ -36,7 +36,7 @@ export default function SingleProject({ imgSrc, name, github, deployment }: ISin
       `}
     >
       <img src={imgSrc} alt={name} className="w-full h-auto" />
-      <div className='z-10 bg-fuchsia-200 w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0'>
+      <div className='z-10 bg-grayish w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0'>
         </div>
         <div className='z-20 text-center absolute group-hover:opacity-100 opacity-0  transition-all duration-300 ease-in-out top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-2 text-sm  text-grayish'>
         <Link

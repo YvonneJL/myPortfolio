@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Unbounded";
+    src: url("/font/Unbounded-VariableFont_wght.ttf");
+}
+
 @theme {
     --color-background: #c2a4ad;
     --color-background-var: #e3cfd4;
@@ -18,25 +23,11 @@
     --color-animate: #edd88a
 }
 
-/* @font-face {
-    font-family: "Poppins Regular";
-    src: url("/fonts/Poppins-Regular.ttf");
-} */
-
-/* @keyframes horizontalScroll {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(6%);
-  } 
+html {
+  font-family: "Unbounded";
 }
 
-.scrolling-text {
-  animation: horizontalScroll 1s linear;
-  will-change: transform;
-  position: relative;
-} */
+
 
 
 @keyframes drag-in {
@@ -69,3 +60,15 @@
   animation: wiggle 0.3s ease-in-out;
 }
 
+@keyframes fadeInLetter {
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation-name: fadeInLetter;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
