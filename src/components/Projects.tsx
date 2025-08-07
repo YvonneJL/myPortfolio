@@ -38,7 +38,7 @@ export default function Projects() {
   return (
     <section id="projects" className="pb-30">
     <ChapterHeadline content="Projects"/>
-   <section className="flex flex-row justify-center pt-10 gap-5">
+   <section className="flex flex-row justify-center pt-15 gap-5">
     {
     projects.map((project)=> (
         

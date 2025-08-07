@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ChapterHeadline from './ChapterHeadline'
 import type { IIcon } from '../interfaces/Icon'
 import SingleSkill from './SingleSkill'
