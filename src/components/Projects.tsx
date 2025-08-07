@@ -20,14 +20,14 @@ export default function Projects() {
         needsRotate: false
     },
     {
-        imgSrc: "../../public/video/iPhone-13-PRO-pokemon-api-duo-project.vercel.app--xd977wtq3_bby.webm",
+        imgSrc: "/video/iPhone-13-PRO-pokemon-api-duo-project.vercel.app--xd977wtq3_bby.webm",
         name: "Pokemon Team Project",
         github: "https://github.com/YvonneJL/Project-Pokemon-API",
         deployment: "https://pokemon-api-duo-project.vercel.app/pikachu",
         needsRotate: false,
     },
     {
-        imgSrc: "../../public/video/iPhone-13-PRO-mov-react-project.vercel.app-n8u03m2wv1q__8.webm",
+        imgSrc: "/video/iPhone-13-PRO-mov-react-project.vercel.app-n8u03m2wv1q__8.webm",
         name: ".MOV Project",
         github: "https://github.com/YvonneJL/.MOV-React-Project",
         deployment: "https://mov-react-project.vercel.app/",

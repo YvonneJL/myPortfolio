@@ -21,7 +21,7 @@ export default function Contact() {
     name: "Lebenslauf"
   },
   {
-    link: "../../public/Yvonne-Loder-Zertifikat.pdf",
+    link: "/Yvonne-Loder-Zertifikat.pdf",
     name: "Zertifikat"
   },
 ]
