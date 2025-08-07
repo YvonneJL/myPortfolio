@@ -17,11 +17,11 @@ export default function Contact() {
     name: "LinkedIn"
   },
   {
-    link: "https://github.com/YvonneJL",
+    link: "/Lebenslauf-YJL.pdf",
     name: "Lebenslauf"
   },
   {
-    link: "https://github.com/YvonneJL",
+    link: "../../public/Yvonne-Loder-Zertifikat.pdf",
     name: "Zertifikat"
   },
 ]
