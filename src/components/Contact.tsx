@@ -17,7 +17,7 @@ export default function Contact() {
     name: "LinkedIn"
   },
   {
-    link: "/Lebenslauf-YJL.pdf",
+    link: "/Lebenslauf-portfolio.pdf",
     name: "Lebenslauf"
   },
   {
