@@ -6,10 +6,10 @@ interface ISingleProjectProps {
   name: string;
   github: string;
   deployment: string;
-  needsRotate: boolean
+  needsRotate: boolean;
 }
 
-export default function SingleProject({ imgSrc, github, deployment, needsRotate }: ISingleProjectProps) {
+export default function SingleProject({ imgSrc, github, deployment, needsRotate}: ISingleProjectProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -28,17 +28,30 @@ export default function SingleProject({ imgSrc, github, deployment, needsRotate 
     };
   }, []);
 
+  //Video to stop and replay - hover Effect
+  const videoTag = useRef<HTMLVideoElement | null>(null)
+
+
+const handleHoverIn = () => {
+    videoTag.current?.pause();
+};
+const handleHoverOut = () => {
+    videoTag.current?.play();
+};
+
   return (
     <div
+      onMouseEnter={handleHoverIn}
+      onMouseLeave={handleHoverOut}
       ref={ref}
        className={`
     ${needsRotate ? "w-[250px] " : " w-[250px]"} relative group transition-all duration-700 ease-out transform
     ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-50'}
   `}
     >
-      {/* <img src={imgSrc} alt={name} className="w-full h-auto" /> */}
      <video
   src={imgSrc}
+  ref={videoTag}
   autoPlay
   muted
   loop
@@ -54,7 +67,7 @@ export default function SingleProject({ imgSrc, github, deployment, needsRotate 
           to={github}
           target="_blank"
           rel="noopener noreferrer"
-          className='hover:border-2 hover:border-fuchsia-200 bg-fuchsia-200 hover:bg-transparent px-3 py-2 hover:text-grayish'
+          className='hover:border-2 hover:border-fuchsia-200 hover:text-zinc-50 bg-fuchsia-200 hover:bg-transparent px-3 py-2 '
         >
           GitHub
         </Link>
@@ -62,7 +75,7 @@ export default function SingleProject({ imgSrc, github, deployment, needsRotate 
           to={deployment}
           target="_blank"
           rel="noopener noreferrer"
-          className='hover:border-2 hover:border-fuchsia-200 bg-fuchsia-200 hover:bg-transparent px-3 py-2 rounded-br-lg hover:text-grayish'
+          className='hover:border-2 hover:border-fuchsia-200 bg-fuchsia-200 hover:bg-transparent px-3 py-2 rounded-br-lg hover:text-zinc-50'
         >
           Deployment
         </Link>

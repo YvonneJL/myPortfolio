@@ -65,8 +65,8 @@ export default function Contact() {
           ))}
         </h4>
         <div className='flex flex-row gap-10'>
-          {links.map((link)=> (
-            <Links name={link.name} link={link.link}/>
+          {links.map((link, index)=> (
+            <Links key={index} name={link.name} link={link.link}/>
           ))}
         </div>
       </article>

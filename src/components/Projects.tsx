@@ -40,9 +40,9 @@ export default function Projects() {
     <ChapterHeadline content="Projects"/>
    <section className="flex flex-row justify-center pt-15 gap-5">
     {
-    projects.map((project)=> (
+    projects.map((project, index)=> (
         
-            <SingleProject needsRotate={project.needsRotate} imgSrc={project.imgSrc} name={project.name} github={project.github} deployment={project.deployment}/>
+            <SingleProject key={index} needsRotate={project.needsRotate} imgSrc={project.imgSrc} name={project.name} github={project.github} deployment={project.deployment}/>
     
     ))
    }
