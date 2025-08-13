@@ -53,7 +53,7 @@ export default function Contact() {
     <section id='contact' ref={sectionRef} className='h-screen pb-10 text-grayish'>
       <ChapterHeadline content='Contact' />
       <article className='flex flex-col text-right items-end h-full justify-center gap-5 pr-10'>
-        <h4 className="text-6xl tracking-wider">
+        <h4 className="lg:text-6xl text-[65px] tracking-wider">
           {email.split("").map((char, i) => (
             <span
               key={i}
@@ -64,7 +64,7 @@ export default function Contact() {
             </span>
           ))}
         </h4>
-        <div className='flex flex-row gap-10'>
+        <div className='flex lg:flex-row flex-wrap justify-end lg:gap-10 gap-5 mt-10 lg:mt-0'>
           {links.map((link, index)=> (
             <Links key={index} name={link.name} link={link.link}/>
           ))}
