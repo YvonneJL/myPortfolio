@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ChapterHeadline from './ChapterHeadline';
 
 export default function About() {
-  // 🔽 ScrollFadeIn direkt hier definiert
+
   function ScrollFadeIn({
     children,
     className = '',
@@ -28,7 +28,7 @@ export default function About() {
           }
         },
         {
-          threshold: 0.4, // ⬅️ nur triggern, wenn genug sichtbar ist
+          threshold: 0.4, 
         }
       );
 
@@ -57,13 +57,13 @@ export default function About() {
   return (
     <section
       id="about"
-      className="flex flex-col leading-relaxed text-grayish tracking-wider relative"
+      className="flex flex-col leading-relaxed text-grayish lg:text-[16px] text-xs tracking-wider relative"
     >
       <ChapterHeadline content="About" />
 
       {/* Bild: zuerst aufpoppen */}
       <ScrollFadeIn
-        className="flex justify-center w-full absolute left-1/2 top-50 -translate-x-1/2"
+        className="flex justify-center lg:w-full absolute left-1/2 lg:top-50 top-65 -translate-x-1/2"
         delay={0}
       >
         <img src="/img/Frame 178259.svg" alt="Portrait YL" />
@@ -72,7 +72,7 @@ export default function About() {
       {/* Erster Textblock */}
       <div className="pt-10">
         <ScrollFadeIn delay={300}>
-          <p className="text-right w-1/2 ml-auto pb-10">
+          <p className="lg:text-right lg:w-1/2 ml-auto pb-10">
             Hi, ich bin Yvonne! Frontend Entwicklerin mit pädagogischem Hintergrund. Ich nutze mein Gespür
             für Struktur, kreative Lösungsansätze und die Fähigkeit, Komplexes verständlich zu machen, um
             klaren, innovativen Code zu schreiben und benutzerfreundliche Interfaces zu gestalten.
@@ -84,14 +84,14 @@ export default function About() {
       <div className="flex flex-row">
         <div>
           <ScrollFadeIn delay={600}>
-            <p className="my-10 w-1/3 pb-10">
+            <p className="lg:my-10 lg:w-1/3 lg:pb-10 mt-50 mb-5">
               Über Umwege bin ich zum Coden gekommen und habe darin überraschend meine Leidenschaft gefunden.
               Es verbindet genau das, was mich schon immer begeistert hat: Kreativität und logisches Denken.
             </p>
           </ScrollFadeIn>
 
           <ScrollFadeIn delay={900}>
-            <p className="w-1/2 ml-auto text-right pb-15">
+            <p className="lg:w-1/2 ml-auto lg:text-right pb-15">
               Mein Weg war nicht ganz gerade, aber das Ziel umso klarer. Nach einem sechsmonatigen Boot Camp
               mit Schwerpunkt auf Typescript und React bin ich seit Mai 2025 zertifizierte Frontend Developerin.
               Jetzt freue ich mich darauf Teil eines kreativen Teams zu werden, um als Frontend Developerin
