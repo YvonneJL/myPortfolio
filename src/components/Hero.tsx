@@ -56,7 +56,7 @@ export default function Hero() {
   </div>
 
   <div className="flex space-x-1">
-    {letters.slice(8).map((letter, index) => (
+    {letters.slice(9).map((letter, index) => (
       <span
         key={`line2-${index}`}
         className="drag-in hover-wiggle inline-block lg:text-7xl text-2xl tracking-widest text-grayish lg:pt-25"

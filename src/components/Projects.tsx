@@ -13,7 +13,7 @@ export default function Projects() {
         needsRotate: true,
     },
     {
-        imgSrc: "../../public/video/iPhone-13-PRO-rock-paper-scissors-react-project.vercel.app-bsur93f9j-mdjw.mp4",
+        imgSrc: "/video/iPhone-13-PRO-rock-paper-scissors-react-project.vercel.app-bsur93f9j-mdjw.mp4",
         name: "Rock Paper Scissors Project",
         github: "https://github.com/YvonneJL/Rock-Paper-Scissors-React-Project?tab=readme-ov-file",
         deployment: "https://rock-paper-scissors-react-project.vercel.app/",

@@ -62,7 +62,7 @@ const handleHoverOut = () => {
 />
       <div className='z-10 bg-grayish w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0 rounded-[45px] '>
         </div>
-        <div className='z-20 text-center absolute group-hover:opacity-100 opacity-0  transition-all duration-300 ease-in-out top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-2 text-sm  text-grayish'>
+        <div className='z-20 text-center absolute lg:group-hover:opacity-100 lg:opacity-0  transition-all duration-300 ease-in-out top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-2 text-sm  text-grayish'>
         <Link
           to={github}
           target="_blank"
