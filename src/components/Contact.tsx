@@ -64,7 +64,7 @@ export default function Contact() {
             </span>
           ))}
         </h4>
-        <div className='flex lg:flex-row flex-wrap justify-end lg:gap-10 gap-5 mt-10 lg:mt-0'>
+        <div className='flex lg:flex-row flex-wrap justify-end lg:gap-10 gap-5 mt-5 lg:mt-0'>
           {links.map((link, index)=> (
             <Links key={index} name={link.name} link={link.link}/>
           ))}
