@@ -45,7 +45,7 @@ const handleHoverOut = () => {
       onMouseLeave={handleHoverOut}
       ref={ref}
        className={`
-    ${needsRotate ? " w-[300px] h-[608px]"  : " w-[300px] "} relative group transition-all duration-700 ease-out transform
+    ${needsRotate ? " w-[300px] lg:w-[250px] h-[608px] lg:h-[506px]"  : " w-[300px] lg:w-[250px] "} relative group transition-all duration-700 ease-out transform
     ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-50'}
   `}
     >
@@ -56,7 +56,7 @@ const handleHoverOut = () => {
   muted
   loop
   playsInline
-  className={` ${needsRotate ? 'absolute top-1/2 left-1/2 h-[300px] transform rotate-90 -translate-x-1/2 -translate-y-1/2 object-cover  z-0  max-w-none max-h-none' : "w-full h-auto"} rounded-[45px]  grayscale-0 group-hover:grayscale
+  className={` ${needsRotate ? 'absolute top-1/2 left-1/2 h-[300px] lg:h-[250px] transform rotate-90 -translate-x-1/2 -translate-y-1/2 object-cover  z-0  max-w-none max-h-none' : "w-full h-auto"} rounded-[45px]  grayscale-0 group-hover:grayscale
   `}
  
 />
@@ -67,7 +67,7 @@ const handleHoverOut = () => {
           to={github}
           target="_blank"
           rel="noopener noreferrer"
-          className='hover:border-2 hover:border-fuchsia-200 hover:text-zinc-50 bg-fuchsia-200 hover:bg-transparent px-3 py-2 '
+          className='hover:border-2 border-2 lg:border-0 hover:border-fuchsia-200 hover:text-zinc-50 bg-fuchsia-200 hover:bg-transparent px-3 py-2 '
         >
           GitHub
         </Link>
@@ -75,7 +75,7 @@ const handleHoverOut = () => {
           to={deployment}
           target="_blank"
           rel="noopener noreferrer"
-          className='hover:border-2 hover:border-fuchsia-200 bg-fuchsia-200 hover:bg-transparent px-3 py-2 rounded-br-lg hover:text-zinc-50'
+          className='hover:border-2 border-2 lg:border-0 hover:border-fuchsia-200 bg-fuchsia-200 hover:bg-transparent px-3 py-2 rounded-br-lg hover:text-zinc-50'
         >
           Deployment
         </Link>
