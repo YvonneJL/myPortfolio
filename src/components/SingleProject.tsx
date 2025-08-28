@@ -12,7 +12,6 @@ interface ISingleProjectProps {
 export default function SingleProject({ imgSrc, github, deployment, needsRotate }: ISingleProjectProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const hasAnimated = useRef(false); // ref statt let
 
 useEffect(() => {
   let prevY = 0;
