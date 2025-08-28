@@ -9,60 +9,88 @@ interface ISingleProjectProps {
   needsRotate: boolean;
 }
 
-export default function SingleProject({ imgSrc, github, deployment, needsRotate}: ISingleProjectProps) {
+export default function SingleProject({ imgSrc, github, deployment, needsRotate }: ISingleProjectProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const hasAnimated = useRef(false); // ref statt let
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
+useEffect(() => {
+  let prevY = 0;
+  const hasAnimated = { current: false };
 
-    if (ref.current) observer.observe(ref.current);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      const currentY = entry.boundingClientRect.top;
+      const isScrollingDown = currentY < prevY;
+      const isMostlyVisible = entry.intersectionRatio > 0.2;
 
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, []);
+      if (entry.isIntersecting && isMostlyVisible) {
+        if (isScrollingDown && !hasAnimated.current) {
+          setIsVisible(true);
+          hasAnimated.current = true;
+        } else if (!hasAnimated.current) {
+          setIsVisible(true);
+        }
+      }
+
+      prevY = currentY;
+    },
+    {
+      threshold: Array.from({ length: 21 }, (_, i) => i / 20),
+    }
+  );
+
+  if (ref.current) observer.observe(ref.current);
+
+  // Scrolllistener, der checkt, ob User ganz oben ist → reset
+  const handleScroll = () => {
+    if (window.scrollY === 0) {
+      hasAnimated.current = false;
+      setIsVisible(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => {
+    if (ref.current) observer.unobserve(ref.current);
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
 
   //Video to stop and replay - hover Effect
-  const videoTag = useRef<HTMLVideoElement | null>(null)
+  const videoTag = useRef<HTMLVideoElement | null>(null);
 
-
-const handleHoverIn = () => {
+  const handleHoverIn = () => {
     videoTag.current?.pause();
-};
-const handleHoverOut = () => {
+  };
+  const handleHoverOut = () => {
     videoTag.current?.play();
-};
+  };
 
   return (
     <div
       onMouseEnter={handleHoverIn}
       onMouseLeave={handleHoverOut}
       ref={ref}
-       className={`
-    ${needsRotate ? " w-[300px] lg:w-[250px] h-[608px] lg:h-[506px]"  : " w-[300px] lg:w-[250px] "} relative group transition-all duration-700 ease-out transform
-    ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-50'}
-  `}
+      className={`
+        ${needsRotate ? " w-[300px] lg:w-[250px] h-[608px] lg:h-[506px]" : " w-[300px] lg:w-[250px] "} relative group transition-all duration-700 ease-out transform
+        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-50'}
+      `}
     >
-     <video
-  src={imgSrc}
-  ref={videoTag}
-  autoPlay
-  muted
-  loop
-  playsInline
-  className={` ${needsRotate ? 'absolute top-1/2 left-1/2 h-[300px] lg:h-[250px] transform rotate-90 -translate-x-1/2 -translate-y-1/2 object-cover  z-0  max-w-none max-h-none' : "w-full h-auto"} rounded-[45px]  grayscale-0 group-hover:grayscale
-  `}
- 
-/>
-      <div className='z-10 bg-grayish w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0 rounded-[45px] '>
-        </div>
-        <div className='z-20 text-center absolute lg:group-hover:opacity-100 lg:opacity-0  transition-all duration-300 ease-in-out top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-2 text-sm  text-grayish'>
+      <video
+        src={imgSrc}
+        ref={videoTag}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className={` ${needsRotate ? 'absolute top-1/2 left-1/2 h-[300px] lg:h-[250px] transform rotate-90 -translate-x-1/2 -translate-y-1/2 object-cover  z-0  max-w-none max-h-none' : "w-full h-auto"} rounded-[45px]  grayscale-0 group-hover:grayscale
+        `}
+      />
+      <div className='z-10 bg-grayish w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0 rounded-[45px] '></div>
+      <div className='z-20 text-center absolute lg:group-hover:opacity-100 lg:opacity-0  transition-all duration-300 ease-in-out top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-2 text-sm  text-grayish'>
         <Link
           to={github}
           target="_blank"
@@ -80,8 +108,6 @@ const handleHoverOut = () => {
           Deployment
         </Link>
       </div>
-      
     </div>
   );
 }
-

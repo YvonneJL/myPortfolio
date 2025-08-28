@@ -8,18 +8,43 @@ export default function ChapterHeadline({content}: ChapterHeadlineProps) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
+useEffect(() => {
+  let prevY = 0;
+  let hasAnimated = false;
 
-    if (ref.current) observer.observe(ref.current);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      const currentY = entry.boundingClientRect.top;
+      const isScrollingDown = currentY < prevY;
+      const isMostlyVisible = entry.intersectionRatio > 0.6;
 
-    return () => observer.disconnect();
-  }, []);
+      if (entry.isIntersecting && isMostlyVisible) {
+        if (isScrollingDown && !hasAnimated) {
+          setVisible(true);
+          hasAnimated = true; // Animation nur einmal auslösen
+        } else if (!hasAnimated) {
+          // Beim Hochscrollen sichtbar ohne Animation (sichtbar ohne Zustand ändern)
+          setVisible(true);
+        }
+      }
+
+      // Optional: Reset wenn komplett raus (kann man auch weglassen, je nach gewünschtem Verhalten)
+      if (!entry.isIntersecting && currentY > window.innerHeight) {
+        setVisible(false);
+        hasAnimated = false;
+      }
+
+      prevY = currentY;
+    },
+    {
+      threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+    }
+  );
+
+  if (ref.current) observer.observe(ref.current);
+
+  return () => observer.disconnect();
+}, []);
 
   return (
     <div
