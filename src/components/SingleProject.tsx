@@ -74,7 +74,7 @@ useEffect(() => {
       onMouseLeave={handleHoverOut}
       ref={ref}
       className={`
-        ${needsRotate ? " w-[300px] lg:w-[250px] h-[608px] lg:h-[506px]" : " w-[300px] lg:w-[250px] "} relative group transition-all duration-700 ease-out transform
+        ${needsRotate ? " w-[300px] lg:w-[250px] h-[542px] lg:h-[450px]" : " w-[300px] lg:w-[250px] "} relative group transition-all duration-700 ease-out transform
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-50'}
       `}
     >
@@ -85,10 +85,10 @@ useEffect(() => {
         muted
         loop
         playsInline
-        className={` ${needsRotate ? 'absolute top-1/2 left-1/2 h-[300px] lg:h-[250px] transform rotate-90 -translate-x-1/2 -translate-y-1/2 object-cover  z-0  max-w-none max-h-none' : "w-full h-auto"} rounded-[45px]  grayscale-0 group-hover:grayscale
+        className={` ${needsRotate ? 'absolute top-1/2 left-1/2 h-[300px] lg:h-[250px] transform rotate-90 -translate-x-1/2 -translate-y-1/2 object-cover  z-0  max-w-none max-h-none rounded-tr-[45px] ' : "w-full h-auto rounded-br-[45px]"}  grayscale-0 group-hover:grayscale
         `}
       />
-      <div className='z-10 bg-grayish w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0 rounded-[45px] '></div>
+      <div className='z-10 bg-grayish w-[100%] h-[100%] group-hover:opacity-60 absolute top-0 opacity-0 rounded-br-[45px] '></div>
       <div className='z-20 text-center absolute lg:group-hover:opacity-100 lg:opacity-0  transition-all duration-300 ease-in-out top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center gap-2 text-sm  text-grayish'>
         <Link
           to={github}
