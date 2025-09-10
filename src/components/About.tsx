@@ -75,7 +75,7 @@ export default function About() {
       {/* Erster Textblock */}
       <div className="lg:pt-10 pt-45">
         <ScrollFadeIn delay={300}>
-          <p className="lg:text-right lg:w-1/2 ml-auto lg:pb-10 pb-5">
+          <p className="text-right lg:w-1/2 ml-auto lg:pb-10 pb-5">
             Hi, ich bin Yvonne! Frontend Entwicklerin mit pädagogischem Hintergrund. Ich nutze mein Gespür
             für Struktur, kreative Lösungsansätze und die Fähigkeit, Komplexes verständlich zu machen, um
             klaren, innovativen Code zu schreiben und benutzerfreundliche Interfaces zu gestalten.
@@ -87,14 +87,14 @@ export default function About() {
       <div className="flex flex-row">
         <div>
           <ScrollFadeIn delay={600}>
-            <p className="lg:my-10 lg:w-1/3 lg:pb-10 mb-5">
+            <p className="lg:my-10 lg:w-1/3 lg:pb-10 mb-5 text-right lg:text-left">
               Über Umwege bin ich zum Coden gekommen und habe darin überraschend meine Leidenschaft gefunden.
               Es verbindet genau das, was mich schon immer begeistert hat: Kreativität und logisches Denken.
             </p>
           </ScrollFadeIn>
 
           <ScrollFadeIn delay={900}>
-            <p className="lg:w-1/2 ml-auto lg:text-right pb-15">
+            <p className="lg:w-1/2 ml-auto text-right pb-15">
               Mein Weg war nicht ganz gerade, aber das Ziel umso klarer. Nach einem sechsmonatigen Boot Camp
               mit Schwerpunkt auf Typescript und React bin ich seit Mai 2025 zertifizierte Frontend Developerin.
               Jetzt freue ich mich darauf Teil eines kreativen Teams zu werden, um als Frontend Developerin
