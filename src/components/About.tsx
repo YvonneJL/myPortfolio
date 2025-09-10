@@ -66,7 +66,10 @@ export default function About() {
         className="flex justify-center lg:w-full absolute lg:left-1/2 lg:top-50 top-18 left-50 lg:-translate-x-1/2"
         delay={0}
       >
-        <img src="/img/Frame 178259.svg" alt="Portrait YL" />
+        <img src="/img/Frame 178259.svg" alt="Portrait YL"
+        style={{
+    imageRendering: '-webkit-optimize-contrast',
+  }} />
       </ScrollFadeIn>
 
       {/* Erster Textblock */}
